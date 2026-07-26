@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Core Dark Theme Colors */
+  --bg-main: #0B0E14; /* Deep dark background */
+  --bg-card: #151A23; /* Slightly lighter for cards */
+  --bg-card-glass: rgba(21, 26, 35, 0.7); /* Glassmorphism base */
+  
+  --text-main: #FFFFFF;
+  --text-muted: #8E9BAE;
+  
+  --border-color: rgba(255, 255, 255, 0.08);
+  
+  /* Brand Theme Colors */
+  /* Default: Sporty Blue */
+  --theme-primary: #00E5FF; /* Cyan/Blue Sport */
+  --theme-primary-glow: rgba(0, 229, 255, 0.2);
+  --theme-secondary: #0088FF;
+  
+  --success: #00E676;
+  --danger: #FF1744;
+  --warning: #FFC400;
+  
+  --font-family: 'Inter', sans-serif;
+}
+
+/* Theme Switcher Classes */
+.theme-green {
+  --theme-primary: #39FF14; /* Neon Green */
+  --theme-primary-glow: rgba(57, 255, 20, 0.2);
+  --theme-secondary: #00C853;
+}
+
+.theme-gold {
+  --theme-primary: #FFD700; /* Premium Gold */
+  --theme-primary-glow: rgba(255, 215, 0, 0.2);
+  --theme-secondary: #FFB300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Utility Classes */
+.glass-panel {
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary));
+  color: #000;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--theme-primary-glow);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--theme-primary-glow);
+  filter: brightness(1.1);
+}
+
+.input-field {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 14px 16px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--theme-primary);
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 4px var(--theme-primary-glow);
+}
+
+.title-glow {
+  color: var(--text-main);
+  text-shadow: 0 0 20px var(--theme-primary-glow);
+}
+
+/* Layout Utilities */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-card);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color);
+}
+
+/* Tactics Board Pitch CSS removed in favor of SVG */
