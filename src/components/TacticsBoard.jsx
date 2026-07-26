@@ -124,7 +124,7 @@ function TacticsBoard({ sportType = 'Football' }) {
         {/* Pitch Area */}
         <div 
           id="pitch-container"
-          className="relative w-full aspect-[2/3] max-h-[700px] mx-auto rounded-lg overflow-hidden border-4 border-white/20 shadow-2xl" 
+          className="relative w-full aspect-[2/3] max-h-[700px] mx-auto rounded-lg border-4 border-white/20 shadow-2xl" 
           style={{ 
             position: 'relative', 
             width: '100%', 
@@ -132,13 +132,41 @@ function TacticsBoard({ sportType = 'Football' }) {
             maxHeight: '700px', 
             margin: '0 auto',
             borderRadius: '0.5rem',
-            overflow: 'hidden',
             border: '4px solid rgba(255,255,255,0.2)',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
           }}
         >
-          {/* Pitch CSS background */}
-          <div className="pitch-bg absolute inset-0" style={{ position: 'absolute', inset: 0, zIndex: 0 }}></div>
+          {/* Authentic SVG Pitch */}
+          <svg width="100%" height="100%" viewBox="0 0 400 600" preserveAspectRatio="none" style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundColor: '#2e7d32', borderRadius: '0.25rem' }}>
+            <rect x="0" y="0" width="400" height="100" fill="#29732d" />
+            <rect x="0" y="100" width="400" height="100" fill="#2e7d32" />
+            <rect x="0" y="200" width="400" height="100" fill="#29732d" />
+            <rect x="0" y="300" width="400" height="100" fill="#2e7d32" />
+            <rect x="0" y="400" width="400" height="100" fill="#29732d" />
+            <rect x="0" y="500" width="400" height="100" fill="#2e7d32" />
+            
+            {/* Outer boundary */}
+            <rect x="20" y="20" width="360" height="560" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            
+            {/* Center line */}
+            <line x1="20" y1="300" x2="380" y2="300" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            
+            {/* Center circle & spot */}
+            <circle cx="200" cy="300" r="45" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            <circle cx="200" cy="300" r="3" fill="rgba(255,255,255,0.5)" />
+            
+            {/* Top Penalty Box */}
+            <rect x="80" y="20" width="240" height="90" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            <rect x="140" y="20" width="120" height="30" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            <path d="M 155 110 A 45 45 0 0 0 245 110" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            <circle cx="200" cy="80" r="3" fill="rgba(255,255,255,0.5)" />
+            
+            {/* Bottom Penalty Box */}
+            <rect x="80" y="490" width="240" height="90" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            <rect x="140" y="550" width="120" height="30" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            <path d="M 155 490 A 45 45 0 0 1 245 490" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+            <circle cx="200" cy="520" r="3" fill="rgba(255,255,255,0.5)" />
+          </svg>
 
           {/* Draggable Players */}
           {players.map(player => (
@@ -146,7 +174,6 @@ function TacticsBoard({ sportType = 'Football' }) {
               key={player.id}
               position={positions[player.id]}
               onStop={(e, data) => handleDragStop(player.id, e, data)}
-              bounds="parent"
             >
               <div 
                 className="absolute z-20 cursor-grab active:cursor-grabbing flex flex-col items-center group touch-none"
