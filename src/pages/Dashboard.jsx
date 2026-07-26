@@ -6,6 +6,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import SquadManagement from '../components/SquadManagement';
 import MatchesFixtures from '../components/MatchesFixtures';
+import TacticsBoard from '../components/TacticsBoard';
 import ImageCropperModal from '../components/ImageCropperModal';
 
 function Dashboard({ setTheme }) {
@@ -278,12 +279,7 @@ function Dashboard({ setTheme }) {
         <div className="glass-panel p-6 min-h-[500px]" style={{ padding: '1.5rem', minHeight: '500px' }}>
           {activeTab === 'squad' && <SquadManagement sportType={profile.sportType} />}
           {activeTab === 'matches' && <MatchesFixtures />}
-          {activeTab === 'tactics' && (
-            <div>
-              <h2 className="text-2xl font-bold mb-4" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Tactics Board</h2>
-              <p style={{ color: 'var(--text-muted)' }}>กระดานวางแผนการเล่นแบบ Interactive (อยู่ระหว่างการพัฒนา)</p>
-            </div>
-          )}
+          {activeTab === 'tactics' && <TacticsBoard sportType={profile.sportType} />}
           {activeTab === 'finances' && (
             <div>
               <h2 className="text-2xl font-bold mb-4" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Team Finances</h2>
