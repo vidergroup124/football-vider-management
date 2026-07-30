@@ -172,7 +172,7 @@ function TacticsBoard({ sportType = 'Football' }) {
           {players.map(player => (
             <Draggable
               key={player.id}
-              position={positions[player.id]}
+              defaultPosition={positions[player.id]}
               onStop={(e, data) => handleDragStop(player.id, e, data)}
             >
               <div 
